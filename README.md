@@ -9,7 +9,7 @@ This project is a **single-page prototype** meant for a hackathon and demonstrat
 ## Features
 
 - **Step-by-Step Form**: Users can input basic details about their housing preferences, including location, budget, and desired features for sustainability.
-- **AI Integration**: Currently powered by OpenAI, the tool provides smart suggestions based on user input, helping guide them toward eco-friendly and cost-efficient choices.
+- **AI Integration**: Trained on real house databases, this Machine Learning tool provides smart suggestions based on user input, helping guide them toward eco-friendly and cost-efficient choices.
 - **Cute Animations**: The prototype includes interactive and cute loading GIFs to keep users engaged while their data is processed.
 
 ## Future Improvements
