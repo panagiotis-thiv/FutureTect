@@ -7,6 +7,7 @@ import CustomModalForm from './CustomModalForm';
 import Footer from './Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import ChatBot from './ChatBot';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -120,6 +121,7 @@ function App() {
         </div>
       )}
       <Footer />
+      <ChatBot />
     </div>
   );
 }

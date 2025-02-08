@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0); /* Optional: semi-transparent background */
-    z-index: 99; /* Ensure it is above other content */
+    z-index: 98; /* Ensure it is above other content */
   }
   
   .loading-gif {
