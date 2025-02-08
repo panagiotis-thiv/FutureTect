@@ -11,9 +11,16 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@react-google-maps/api": "^2.20.5",
     "bootstrap": "^5.3.3",
+    "leaflet": "^1.9.4",
+    "mapbox-gl": "^3.9.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0",
+    "react-leaflet": "^5.0.0",
+    "react-map-gl": "^8.0.1",
+    "react-modal": "^3.16.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",

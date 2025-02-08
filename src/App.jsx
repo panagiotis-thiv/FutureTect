@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Loading from './Loading';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import AnimatedText from './AnimatedText';
+import MapPicker from './MapPicker';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(0);
   const [userData, setUserData] = useState({});
   const [textComplete, setTextComplete] = useState(false);
+  const [location, setLocation] = useState(null);
 
   const startLoading = () => {
     setIsLoading(true);
@@ -21,6 +23,11 @@ function App() {
   const handleTextComplete = () => {
     setTextComplete(true);
     setStep(step + 1);
+  };
+
+  const handleLocationSelect = (location) => {
+    setLocation(location);
+    console.log('Selected location:', location);
   };
 
   return (
@@ -37,7 +44,7 @@ function App() {
             />
           </div>
           <div className="lower">
-            {textComplete && <button onClick={startLoading}>Start Loading</button>}
+            {textComplete && step === 1 && <MapPicker onLocationSelect={handleLocationSelect} className="earth-icon" />}
           </div>
         </div>
       )}
