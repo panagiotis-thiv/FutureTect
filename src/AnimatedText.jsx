@@ -2,15 +2,21 @@ import React, { useEffect, useState, useRef } from 'react';
 import './AnimatedText.css';
 
 const AnimatedText = ({ text, onComplete, className }) => {
-  const [displayedText, setDisplayedText] = useState('');
+  const [displayedText, setDisplayedText] = useState([]);
   const [index, setIndex] = useState(0);
   const onCompleteCalled = useRef(false); // Track if onComplete has been called
 
   useEffect(() => {
     if (index < text.length) {
       const timeout = setTimeout(() => {
-        setDisplayedText(displayedText + text[index]);
-        setIndex(index + 1);
+        const nextChar = text[index];
+        if (nextChar === '<' && text.substring(index, index + 4) === '<br>') {
+          setDisplayedText([...displayedText, <br key={index} />]);
+          setIndex(index + 4);
+        } else {
+          setDisplayedText([...displayedText, nextChar]);
+          setIndex(index + 1);
+        }
       }, 50);
       return () => clearTimeout(timeout);
     } else if (index === text.length && !onCompleteCalled.current) {

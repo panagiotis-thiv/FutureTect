@@ -30,12 +30,14 @@ function App() {
       {!isLoading && (
         <div className="content">
           <div className="upper">
-            <AnimatedText text="Welcome to OptiHouse!" onComplete={handleTextComplete} className="line1" />
-            {step >= 1 && <AnimatedText text="Let's find the perfect way to build your home." onComplete={handleTextComplete} className="line2" />}
-            {step >= 2 && <AnimatedText text="First, where will your house be built?" onComplete={handleTextComplete} className="line3" />}
+            <AnimatedText
+              text="Welcome to OptiHouse!<br>Let's find the perfect way to build your home.<br>First, where will your house be built?"
+              onComplete={handleTextComplete}
+              className="line1"
+            />
           </div>
           <div className="lower">
-            {step >= 2 && <button onClick={startLoading}>Start Loading</button>}
+            {textComplete && <button onClick={startLoading}>Start Loading</button>}
           </div>
         </div>
       )}
