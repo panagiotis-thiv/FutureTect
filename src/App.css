@@ -57,6 +57,10 @@
   margin-top: 50px;
 }
 
+.earth-icon img {
+  animation: fadeIn 2s ease-in-out;
+}
+
 .form-group{
   margin-top: 20px;
 }
@@ -93,9 +97,9 @@
 }
 
 .num-people img {
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .house-size img {
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
 }

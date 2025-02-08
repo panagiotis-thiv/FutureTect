@@ -3,12 +3,14 @@ import './Navbar.css';
 import logo from './assets/house.png'; // Adjust the path to your logo
 
 const Navbar = () => {
+  const handleLogoClick = () => {
+    window.location.reload();
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <a href="#">
-        <img src={logo} alt="OptiHouse Logo" className="navbar-logo" />
-        </a>
+        <img src={logo} alt="Logo" className="navbar-logo" onClick={handleLogoClick} />
         <span className="navbar-title">OptiHouse</span>
       </div>
     </nav>

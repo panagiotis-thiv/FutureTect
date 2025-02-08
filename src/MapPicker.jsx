@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Modal, Button } from 'react-bootstrap';
 import earthIcon from './assets/earth.gif'; // Adjust the path as necessary
-import './MapPicker.css'; // Import the CSS file
 
 const MapPicker = ({ onLocationSelect, className }) => {
   const [markerPosition, setMarkerPosition] = useState([37.7577, -122.4376]);
@@ -32,24 +31,21 @@ const MapPicker = ({ onLocationSelect, className }) => {
   return (
     <div>
       <div onClick={openModal} style={{ cursor: 'pointer', display: 'inline-block' }} className={className}>
-        <img src={earthIcon} alt="Select Location" className={isOpen ? 'earth-icon' : ''} />
+        <img src={earthIcon} alt="Select Location" />
       </div>
       <Modal show={isOpen} onHide={closeModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Select Location</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <MapContainer center={markerPosition} zoom={13} style={{ height: '400px' }}>
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
+          <MapContainer center={markerPosition} zoom={8} style={{ height: '400px', width: '100%' }}>
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <LocationMarker />
           </MapContainer>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeModal}>Close</Button>
-          <Button variant="primary" onClick={handleConfirm}>Confirm</Button>
+          <Button variant="secondary" onClick={closeModal}>Cancel</Button>
+          <Button variant="primary" onClick={handleConfirm}>Confirm Location</Button>
         </Modal.Footer>
       </Modal>
     </div>
