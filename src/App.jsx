@@ -15,6 +15,7 @@ function App() {
   const [step, setStep] = useState(0);
   const [numPeople, setNumPeople] = useState('');
   const [houseSize, setHouseSize] = useState('');
+  const [windowRatio, setWindowRatio] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [inputType, setInputType] = useState('text');
@@ -64,6 +65,12 @@ function App() {
     setShowModal(false);
   };
 
+  const handleWindowRatioSubmit = (value) => {
+    setWindowRatio(value);
+    console.log('Window ratio:', value);
+    setStep(step + 1);
+  }
+
   return (
     <div className="App">
       <Navbar />
@@ -72,7 +79,7 @@ function App() {
         <div className="content">
           <div className="upper">
             {step == 0 && <AnimatedText
-              text="Welcome to OptiHouse!<br>Let's find the perfect way to create your home.<br>First, where would you like it to be located?"
+              text="Welcome to OptiHouse!<br>Let's find the most sustainable way to create your home.<br>First, where would you like it to be located?"
               onComplete={handleTextComplete}
               className="line1"
             />}
@@ -85,6 +92,11 @@ function App() {
               text="What will the total size of the house be in square meters?"
               onComplete={handleTextComplete}
               className="line2"
+            />}
+            {step == 3 && <AnimatedText
+            text="What should be the window-to-wall ratio for your house?<br>The window-to-wall ratio is the percentage of the wall area that is covered by windows.<br>For example, a ratio of 20% means that 20% of the wall area will be windows."
+            onComplete={handleTextComplete}
+            className="line1"
             />}
           </div>
           <div className="lower">
@@ -105,6 +117,16 @@ function App() {
                   src="house_measure.png"
                   alt="Enter House Size"
                   onClick={() => handleShowModal('House Size (sqm)', 'number', 'form-control', handleHouseSizeSubmit)}
+                  className="size-icon"
+                />
+              </div>
+            )}
+            {step == 3 && (
+              <div className="window-ratio">
+                <img
+                  src="window.png"
+                  alt="Enter window to wall ratio"
+                  onClick={() => handleShowModal('windows-to-wall ratio (percentage)', 'number', 'form-control', handleWindowRatioSubmit)}
                   className="size-icon"
                 />
               </div>
