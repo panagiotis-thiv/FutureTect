@@ -18,7 +18,3 @@ This project is a **single-page prototype** meant for a hackathon and demonstrat
 - **Advanced AI Integration**: The tool will leverage more sophisticated data manipulation, using geographic and demographic datasets to generate optimized, cost-efficient, and sustainable home plans for specific areas.
 - **User Login & Data Saving**: Users will be able to create accounts, save their data, and revisit their home plans later.
 - **Expanded Front-End Interactivity**: A more interactive design with real-time visualizations of the building process, including energy usage, material choices, and more.
-
-## License
-
-This project is open-source and licensed under the MIT License. Feel free to use, modify, and contribute.

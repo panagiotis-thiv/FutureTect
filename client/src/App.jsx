@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
-import Loading from './Loading';
-import AnimatedText from './AnimatedText';
-import MapPicker from './MapPicker';
-import CustomModalForm from './CustomModalForm';
-import Footer from './Footer';
+import Navbar from './components/layout/Navbar';
+import Loading from './utils/Loading';
+import AnimatedText from './utils/AnimatedText';
+import MapPicker from './components/dialogs/MapPicker';
+import CustomModalForm from './components/dialogs/CustomModalForm';
+import Footer from './components/layout/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import ChatBot from './ChatBot';
+import ChatBot from './utils/ChatBot';
+import { getHelloMessage } from './services/api';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +22,19 @@ function App() {
   const [inputType, setInputType] = useState('text');
   const [inputClassName, setInputClassName] = useState('form-control');
   const [onSubmit, setOnSubmit] = useState(() => {});
+
+  //For python backend
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    // Call the FastAPI endpoint when the component mounts
+    getHelloMessage()
+      .then((data) => {
+        // Assume your FastAPI endpoint returns an object like { message: "Hello from FastAPI!" }
+        setMessage(data.message);
+      })
+      .catch((error) => console.error('Error fetching message:', error));
+  }, []);
 
   useEffect(() => {
     // Simulate a loading period
@@ -73,10 +87,14 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar message={message}/>
       {isLoading && <Loading />}
       {!isLoading && (
         <div className="content">
+          <div className="backend-message">
+            <h2>Backend Message:</h2>
+            <p>{message ? message : 'No message received yet'}</p>
+          </div>
           <div className="upper">
             {step == 0 && <AnimatedText
               text="Welcome to OptiHouse!<br>Let's find the most sustainable way to create your home.<br>First, where would you like it to be located?"

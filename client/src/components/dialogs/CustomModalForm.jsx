@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 const CustomModalForm = ({ show, onHide, title, inputType, inputClassName, onSubmit }) => {
   const [inputValue, setInputValue] = useState('');
+  const inputRef = useRef(null);
 
+  useEffect(() => {
+    if (show) {
+      setInputValue('');
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 0);
+    }
+  }, [show]);
+  
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -11,6 +21,12 @@ const CustomModalForm = ({ show, onHide, title, inputType, inputClassName, onSub
   const handleSubmit = () => {
     onSubmit(inputValue);
     onHide();
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
   };
 
   return (
@@ -21,10 +37,12 @@ const CustomModalForm = ({ show, onHide, title, inputType, inputClassName, onSub
       <Modal.Body>
         <Form.Group>
           <Form.Control
+            ref={inputRef}
             type={inputType}
             className={inputClassName}
             value={inputValue}
             onChange={handleChange}
+            onKeyPress={handleKeyPress}
           />
         </Form.Group>
       </Modal.Body>

@@ -1,8 +1,8 @@
 import React from 'react';
-import './Navbar.css';
-import logo from './assets/house.png'; // Adjust the path to your logo
+import '../../assets/styles/Navbar.css';
+import logo from '../../assets/images/house.png';
 
-const Navbar = () => {
+const Navbar = ({ message }) => {
   const handleLogoClick = () => {
     window.location.reload();
   };
@@ -13,6 +13,7 @@ const Navbar = () => {
         <img src={logo} alt="Logo" className="navbar-logo" onClick={handleLogoClick} />
         <span className="navbar-title">OptiHouse</span>
       </div>
+      {message && <div className="navbar-message">{message}</div>}
     </nav>
   );
 };

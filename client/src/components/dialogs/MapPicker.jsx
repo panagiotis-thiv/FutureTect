@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Modal, Button } from 'react-bootstrap';
-import earthIcon from './assets/earth.gif'; // Adjust the path as necessary
+import earthIcon from '../../assets/images/earth.gif'; // Adjust the path as necessary
 
 const MapPicker = ({ onLocationSelect, className }) => {
   const [markerPosition, setMarkerPosition] = useState([37.7577, -122.4376]);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './AnimatedText.css';
+import '../assets/styles/AnimatedText.css';
 
 const AnimatedText = ({ text, onComplete, className }) => {
   const [displayedText, setDisplayedText] = useState([]);
