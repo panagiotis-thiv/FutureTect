@@ -17,7 +17,7 @@ const AnimatedText = ({ text, onComplete, className }) => {
           setDisplayedText([...displayedText, nextChar]);
           setIndex(index + 1);
         }
-      }, 50);
+      }, 25);
       return () => clearTimeout(timeout);
     } else if (index === text.length && !onCompleteCalled.current) {
       if (onComplete) {

@@ -17,6 +17,7 @@
     "mapbox-gl": "^3.9.4",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
+    "react-chat-widget": "^3.1.4",
     "react-dom": "^19.0.0",
     "react-leaflet": "^5.0.0",
     "react-map-gl": "^8.0.1",
