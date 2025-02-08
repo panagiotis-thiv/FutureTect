@@ -50,4 +50,5 @@
 .earth-icon img {
   width: 300px; /* Adjust the width as needed */
   cursor: pointer;
+  margin-top: 10px;
 }

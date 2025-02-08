@@ -44,7 +44,7 @@ function App() {
             />
           </div>
           <div className="lower">
-            {textComplete && step === 1 && <MapPicker onLocationSelect={handleLocationSelect} className="earth-icon" />}
+            {step <= 1 && <MapPicker onLocationSelect={handleLocationSelect} className="earth-icon" />}
           </div>
         </div>
       )}
