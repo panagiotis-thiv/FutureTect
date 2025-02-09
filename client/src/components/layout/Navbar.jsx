@@ -11,7 +11,7 @@ const Navbar = ({ message }) => {
     <nav className="navbar">
       <div className="navbar-left">
         <img src={logo} alt="Logo" className="navbar-logo" onClick={handleLogoClick} />
-        <span className="navbar-title">FutureTecht</span>
+        <span className="navbar-title">FutureTect</span>
       </div>
       {message && <div className="navbar-message">{message}</div>}
     </nav>

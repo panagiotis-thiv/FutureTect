@@ -118,7 +118,7 @@ function App() {
           <div className="upper">
             {step === 0 && (
               <AnimatedText
-                text="Welcome to FutureTecht!<br>Let's find the most sustainable way to create your home.<br>First, where would you like it to be located?"
+                text="Welcome to FutureTect!<br>Let's find the most sustainable way to create your home.<br>First, where would you like it to be located?"
                 onComplete={handleTextComplete}
                 className="line1"
               />
