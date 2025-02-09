@@ -26,6 +26,7 @@ const ChatBot = () => {
 
   const getBotResponse = async (userInput) => {
     const apiKey = import.meta.env.VITE_API_KEY;
+    console.log(apiKey);
     try {
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
