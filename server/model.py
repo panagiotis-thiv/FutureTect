@@ -1,3 +1,4 @@
+# model.py
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -31,8 +32,6 @@ def get_estimate(building_size, wwr, insulation, temperature, humidity):
     prediction = knn.predict(input_data)
     return prediction[0] 
 
-# Weather Data Retrieval
-
 def get_weather_data(lat, lon, openweather_api_key):
     """
     Fetches current weather data from the OpenWeatherMap API using provided coordinates.
@@ -62,50 +61,3 @@ def get_weather_data(lat, lon, openweather_api_key):
         print("Error: Failed to make a weather request.")
         print(e)
         return None
-
-def main():
-    openweather_api_key = "d1d29f5d2f0bd71e49cff4024f23dbc5"
-
-    # Building Parameters Input
-    try:
-        building_size = float(input("Enter building size (e.g., in square feet): "))
-        wwr = float(input("Enter window-to-wall ratio (e.g., 0.25): "))
-        insulation = float(input("Enter insulation quality score (e.g., percentage or index value): "))
-    except ValueError:
-        print("Invalid input for building parameters. Please enter numeric values.")
-        return
-
-    # Coordinates Input
-    # Need to be provided from the frontend.
-    try:
-        lat = float(input("Enter the latitude: "))
-        lon = float(input("Enter the longitude: "))
-    except ValueError:
-        print("Invalid input for coordinates. Please enter valid numeric values.")
-        return
-
-    # Retrieve weather data (temperature and humidity) using the provided coordinates.
-    weather_data = get_weather_data(lat, lon, openweather_api_key)
-    if not weather_data:
-        print("Could not retrieve weather data. Exiting prediction.")
-        return
-
-    temperature = weather_data["temperature"]
-    humidity = weather_data["humidity"]
-
-    # print(f"\nRetrieved Weather Data:")
-    # print(f"  Temperature: {temperature} °C")
-    # print(f"  Humidity: {humidity}%\n")
-
-    # Get Estimate ---
-    prediction = get_estimate(building_size, wwr, insulation, temperature, humidity)
-
-    print("Estimated Results:")
-    print("  Energy Savings Potential (%):", prediction[0])
-    print("  Zonal Heating/Cooling Data (kWh):", prediction[1])
-    print("  Carbon Emission Rate (g CO2/kWh):", prediction[2])
-    print("  Water Usage (liters):", prediction[3])
-    print("  Lighting Consumption (kWh):", prediction[4])
-
-if __name__ == "__main__":
-    main()

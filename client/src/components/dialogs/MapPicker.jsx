@@ -31,7 +31,7 @@ const MapPicker = ({ onLocationSelect, className }) => {
   return (
     <div>
       <div onClick={openModal} style={{ cursor: 'pointer', display: 'inline-block' }} className={className}>
-        <img src={earthIcon} alt="Select Location" />
+        <img src={earthIcon} className="icon" alt="Select Location" />
       </div>
       <Modal show={isOpen} onHide={closeModal} centered>
         <Modal.Header closeButton>
