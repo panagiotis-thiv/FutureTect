@@ -11,8 +11,9 @@ By the end of the hackathon, the tool was capable of delivering key data points 
 ## Features
 
 - **Step-by-Step Form**: A user-friendly form for inputting housing preferences, including location and other desired sustainable features.
-- **AI Integration**: Machine learning models trained on real housing data to offer predictions, helping users make eco-friendly and cost-efficient choices.
+- **AI Integration**: The tool analyzes the user’s input and delivers useful predictions, such as energy-saving potential, carbon emissions, water usage, and more, helping users make sustainable choices.
 - **Cute Animations**: Interactive loading GIFs that enhance the user experience.
+- **Chatbot Assistance**: A built-in chatbot powered by ChatGPT that allows users to ask questions and receive helpful information about the tool and sustainable housing options.
 
 ---
 
