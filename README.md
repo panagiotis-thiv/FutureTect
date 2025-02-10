@@ -10,7 +10,7 @@ At the end of the hackathon, the tool focuses on delivering key data points like
 
 ## Features
 
-- **Step-by-Step Form**: A user-friendly form for inputting housing preferences, including location, budget, and desired sustainable features.
+- **Step-by-Step Form**: A user-friendly form for inputting housing preferences, including location and other desired sustainable features.
 - **AI Integration**: Machine learning models trained on real housing data to offer smart recommendations, helping users make eco-friendly and cost-efficient choices.
 - **Cute Animations**: Interactive loading GIFs that enhance the user experience while data is processed.
 
